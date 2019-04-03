@@ -4,6 +4,15 @@ var express = require("express"),
   mongoose = require("mongoose"),
   Task = require("./api/models/todoListModel"), //created model loading here
   bodyParser = require("body-parser");
+const expressSwagger = require("express-swagger-generator")(app);
+const swaggerDefinition = require("./swagger.json");
+
+let options = {
+  swaggerDefinition,
+  basedir: __dirname, //app absolute path
+  files: ["./api/routes/**/*.js"] //Path to the API handle folder
+};
+expressSwagger(options);
 
 // mongoose instance connection url connection
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Tododb";

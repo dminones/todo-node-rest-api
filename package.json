@@ -13,10 +13,10 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "mongoose": "^4.11.8"
+    "mongoose": "^4.11.8",
+    "express-swagger-generator": "^1.1.13"
   },
   "devDependencies": {
-    "express-swagger-generator": "^1.1.13",
     "nodemon": "^1.18.10"
   }
 }

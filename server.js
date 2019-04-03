@@ -3,7 +3,8 @@ var express = require("express"),
   port = process.env.PORT || 3000,
   mongoose = require("mongoose"),
   Task = require("./api/models/todoListModel"), //created model loading here
-  bodyParser = require("body-parser");
+  bodyParser = require("body-parser"),
+  cors = require("cors");
 const expressSwagger = require("express-swagger-generator")(app);
 const swaggerDefinition = require("./swagger.json");
 
@@ -23,7 +24,7 @@ mongoose.connect(mongoUrl, {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(cors());
 var routes = require("./api/routes/todoListRoutes"); //importing route
 routes(app); //register the route
 
